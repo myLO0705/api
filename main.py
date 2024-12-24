@@ -1,3 +1,7 @@
+import logging
+import sys
+import asyncio
+
 import instaloader
 from telegram import Update
 from telegram.ext import Application, CommandHandler, MessageHandler, CallbackContext
@@ -50,7 +54,7 @@ async def handle_message(update: Update, context: CallbackContext) -> None:
 # Botni ishga tushirish
 def main():
     # Telegram bot tokenini kiritish
-    token = '7017043784:AAGXrehVp5qW14Ld3NSyHHydsMgys87qDqc'
+    token = "7017043784:AAGXrehVp5qW14Ld3NSyHHydsMgys87qDqc"
 
     # Application yaratish (v20 va yuqori versiya uchun)
     application = Application.builder().token(token).build()
@@ -63,4 +67,10 @@ def main():
     application.run_polling()
 
 if __name__ == '__main__':
-    main()
+    logging.basicConfig(level=logging.INFO)
+    format = '%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+    handlers = [
+        logging.FileHandler("bot.log"),
+        logging.StreamHandler(sys.stdout)
+    ]
+    asyncio.run(main())
