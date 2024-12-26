@@ -54,7 +54,7 @@ async def handle_message(update: Update, context: CallbackContext) -> None:
 # Botni ishga tushirish
 def main():
     # Telegram bot tokenini kiritish
-    token = "7017043784:AAGXrehVp5qW14Ld3NSyHHydsMgys87qDqc"
+    token = "BOT_API"
 
     # Application yaratish (v20 va yuqori versiya uchun)
     application = Application.builder().token(token).build()
